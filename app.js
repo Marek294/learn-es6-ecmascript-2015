@@ -1,12 +1,18 @@
-const VALUE = {};
-VALUE.foo = 'bar';
-console.log('value: ', VALUE);
+let firstName = 'Marek'
+let lastName = 'Kraska'
 
-const foo = 'baz';
+let person = { 
+    firstName,
+    lastName
+};
 
-if(true) {
-    const foo = 'bar';
-    console.log('foo: ', foo);
+console.log(person);
+
+let mascot = 'Moose';
+
+let team = {
+    person,
+    mascot
 }
 
-console.log('foo: ', foo);
+console.log(team);
