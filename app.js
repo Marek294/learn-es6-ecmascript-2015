@@ -1,16 +1,10 @@
-var color = 'red';
-var speed = 10;
-var drive = 'go';
+let first = [1, 2, 3];
+let second = [4, 5, 6];
 
-var car = {
-    color,
-    speed,
-    [drive]() {
-        console.log('vroom');
-    }
+function addThreeThings(a, b, c) {
+    let result = a + b + c;
+    console.log(result);
 }
 
-console.log(car.color);
-console.log(car.speed);
-
-car[drive]();
+addThreeThings(...first);
+addThreeThings(...second);
