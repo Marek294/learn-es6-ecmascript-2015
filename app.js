@@ -1,18 +1,16 @@
-let firstName = 'Marek'
-let lastName = 'Kraska'
+var color = 'red';
+var speed = 10;
+var drive = 'go';
 
-let person = { 
-    firstName,
-    lastName
-};
-
-console.log(person);
-
-let mascot = 'Moose';
-
-let team = {
-    person,
-    mascot
+var car = {
+    color,
+    speed,
+    [drive]() {
+        console.log('vroom');
+    }
 }
 
-console.log(team);
+console.log(car.color);
+console.log(car.speed);
+
+car[drive]();
