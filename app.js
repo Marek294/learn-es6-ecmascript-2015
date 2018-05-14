@@ -1,13 +1,33 @@
-var deliveryBoy = {
-    name: "Mario",
+function varFunc() {
+    var previous = 0;
+    var current = 1;
+    var i;
+    var temp;
 
-    handleMessage: function (message, handler) {
-        handler(message);
-    },
-
-    receive: function () {
-        this.handleMessage('Hello ', message => console.log(message + this.name));
+    for(i = 0; i < 10; i += 1) {
+        temp = previous;
+        previous = current;
+        current = temp + current;
     }
+
+    console.log(current);
 }
 
-deliveryBoy.receive();
+function letFunc() {
+    let previous = 0;
+    let current = 1;
+
+    for(let i = 0; i < 10; i += 1) {
+        let temp = previous;
+        previous = current;
+        current = temp + current;
+    }
+
+    console.log(current);
+}
+
+console.log("varFunc");
+varFunc();
+
+console.log("letFunc");
+letFunc();
