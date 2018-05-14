@@ -1,21 +1,20 @@
-function ajax({
-  type = "get",
-  url = requiredParameter("url"),
-  data = {},
-  success = requiredParameter("success"),
-  error = () => {},
-  isAsync = true } = {}) {
-	console.log(JSON.stringify({ type, url, data, success, error, isAsync }, null, 2))
+function Store() {
+  let aisle = {
+    fruit: [],
+    vegetables: []
+  };
+
+  return {
+    add: (category, ...items) => {
+      items.forEach((value, index, array) => {
+        aisle[category].push(value);
+      })
+    },
+    aisle
+  }
 }
 
-function requiredParameter(name) {
-	throw new Error(`Missing parameter "${name}"`);
-}
+let myGroceryStore = new Store();
 
-try {
-	ajax({
-		url: "https://my.api.io",
-		success: () => {}
-	});
-} catch (e) { console.warn(e.message) }
-
+myGroceryStore.add('fruit', 'apples', 'oranges');
+console.log(myGroceryStore.aisle)
