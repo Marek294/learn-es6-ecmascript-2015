@@ -1,10 +1,32 @@
-let first = [1, 2, 3];
-let second = [4, 5, 6];
+var salutation = 'Hello';
+var place = 'planet';
+var greeting = `
+    You
+       Crazy    ${place}
+       
+       How
+    Are
+        You
 
-function addThreeThings(a, b, c) {
-    let result = a + b + c;
-    console.log(result);
+
+`;
+
+console.log(greeting);
+
+var x = 1;
+var y = 2;
+var equation = `${x} + ${y} = ${x+y}`;
+
+console.log(equation);
+
+function tag(strings, ...values) {
+    if(values[0] < 20) {
+        values[1] = 'awake';
+    }
+
+    return `${strings[0]}${values[0]}${strings[1]}${values[1]}`
 }
 
-addThreeThings(...first);
-addThreeThings(...second);
+var message = tag`It's ${new Date().getHours()} I'm ${''}`;
+
+console.log(message);
