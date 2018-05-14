@@ -1,18 +1,32 @@
-const d = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    if(true) {
-      resolve('Hello World');
-    } else {
-      reject('Error Message');
-    }
-  },2000);
-})
+function* greet() {
+  let friendly = yield "How";
+  friendly = yield friendly + "Are";
+  yield friendly + "You";
+}
 
-d
-  .then(data => {
-    console.log('success: ', data);
-    throw new Error('throwed error');
-    return data;
-  })
-  .then(data => console.log('success 2: ', data))
-  .catch(error => console.log('error: ', error));
+let greeter = greet();
+console.log(greeter.next().value);
+console.log(greeter.next(" asdasd ").value);
+console.log(greeter.next(" hi ").value);
+
+function* graph() {
+  let x = 0;
+  let y = 0;
+  while(true) {
+    yield {x, y};
+    x += 2;
+    y += 1;
+  }
+}
+
+var graphGenerator = graph();
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
+console.log(graphGenerator.next().value);
