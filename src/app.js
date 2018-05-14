@@ -1,25 +1,21 @@
-var myMap = new Map();
-
-var myObj = {};
-var myFunc = function(){};
-
-myMap.set(myObj, 'bar');
-myMap.set(myFunc, 'world');
-myMap.set('string', 2);
-
-console.log('get on myMap = ' + myMap.get(myObj))
-console.log('has on non-existing key = ' + myMap.has('qwerty'))
-
-for(var [key, value] of myMap.entries()){
-  console.log(key + ' = ' + value)
+function ajax({
+  type = "get",
+  url = requiredParameter("url"),
+  data = {},
+  success = requiredParameter("success"),
+  error = () => {},
+  isAsync = true } = {}) {
+	console.log(JSON.stringify({ type, url, data, success, error, isAsync }, null, 2))
 }
 
-var myWeakMap = new WeakMap();
+function requiredParameter(name) {
+	throw new Error(`Missing parameter "${name}"`);
+}
 
-var myObj2 = {};
-var myFunc2 = function(){};
+try {
+	ajax({
+		url: "https://my.api.io",
+		success: () => {}
+	});
+} catch (e) { console.warn(e.message) }
 
-myMap.set(myObj2, 'bar');
-myMap.set(myFunc2, 'world');
-
-console.log(myMap.get(myFunc2))
